@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/overlay_dark"
+    android:padding="8dp"
+    android:gravity="center_vertical">
+
+    <!-- Play/Pause Button -->
+    <ImageButton
+        android:id="@id/exo_play_pause"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_play_arrow"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/player_play" />
+
+    <!-- Rewind Button -->
+    <ImageButton
+        android:id="@id/exo_rew"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_replay_10"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/player_rewind" />
+
+    <!-- Progress Bar -->
+    <SeekBar
+        android:id="@id/exo_progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="8dp"
+        android:progressTint="@color/secondary_cyan"
+        android:thumbTint="@color/secondary_cyan" />
+
+    <!-- Fast Forward Button -->
+    <ImageButton
+        android:id="@id/exo_ffwd"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_forward_10"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/player_fast_forward" />
+
+    <!-- Fullscreen Button -->
+    <ImageButton
+        android:id="@id/exo_fullscreen"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_fullscreen"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/player_fullscreen" />
+
+</LinearLayout>
