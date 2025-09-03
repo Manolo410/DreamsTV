@@ -41,13 +41,18 @@ object StreamingConfig {
         val contentTypes: List<ContentType>
     )
     
+    // API Keys Configuration
+    const val TMDB_API_KEY = "29a5d28f154de8503d2a4085db7e2196"
+    const val YOUTUBE_API_KEY = "AIzaSyDWLY3Bx87KnBu2Y8J_zaHbDp49YTnUn7M"
+    const val OMDB_API_KEY = "27462a42"
+    
     // Popular Streaming Sources
     val STREAMING_SOURCES = listOf(
         // Free Streaming Sources
         StreamingSource(
             name = "YouTube",
             baseUrl = "https://www.googleapis.com/youtube/v3/",
-            apiKey = "YOUR_YOUTUBE_API_KEY",
+            apiKey = YOUTUBE_API_KEY,
             supportedFormats = listOf("mp4", "webm", "hls"),
             qualityLevels = listOf(StreamQuality.QUALITY_4K, StreamQuality.QUALITY_1080P, StreamQuality.QUALITY_720P),
             contentTypes = listOf(ContentType.MOVIE, ContentType.TV_SHOW, ContentType.DOCUMENTARY)
@@ -104,7 +109,7 @@ object StreamingConfig {
         ContentImportSource(
             name = "The Movie Database",
             apiUrl = "https://api.themoviedb.org/3/",
-            apiKey = "YOUR_TMDB_API_KEY",
+            apiKey = TMDB_API_KEY,
             contentTypes = listOf(ContentType.MOVIE, ContentType.TV_SHOW),
             updateFrequency = "daily"
         ),
@@ -113,7 +118,7 @@ object StreamingConfig {
         ContentImportSource(
             name = "Open Movie Database",
             apiUrl = "http://www.omdbapi.com/",
-            apiKey = "YOUR_OMDB_API_KEY",
+            apiKey = OMDB_API_KEY,
             contentTypes = listOf(ContentType.MOVIE, ContentType.TV_SHOW),
             updateFrequency = "weekly"
         ),

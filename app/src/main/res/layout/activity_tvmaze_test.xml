@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background_dark">
+    android:background="@color/background_dark"
+    android:padding="16dp">
 
     <!-- Header -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DreamsTV Streaming Test"
+        android:text="TVMaze Free API Test"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
@@ -18,28 +18,37 @@
         android:padding="16dp"
         android:background="@color/primary_blue" />
 
-    <!-- Video Player -->
-    <androidx.media3.ui.PlayerView
-        android:id="@+id/player_view"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="8dp"
-        app:use_controller="true"
-        app:controller_layout_id="@layout/custom_player_control_view" />
-
-    <!-- Status Text -->
-    <TextView
-        android:id="@+id/status_text"
+    <!-- Search Section -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ready to stream"
-        android:textSize="14sp"
-        android:textColor="@color/text_secondary"
-        android:gravity="center"
-        android:padding="8dp"
-        android:background="@color/surface_medium" />
+        android:orientation="horizontal"
+        android:padding="8dp">
 
-    <!-- Control Buttons -->
+        <EditText
+            android:id="@+id/tvmaze_search_edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search shows or people..."
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:background="@color/surface_medium"
+            android:padding="12dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/tvmaze_search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search Shows"
+            android:textColor="@color/white"
+            android:background="@drawable/button_primary_background"
+            android:layout_marginEnd="4dp" />
+
+    </LinearLayout>
+
+    <!-- Action Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,49 +56,51 @@
         android:padding="8dp">
 
         <Button
-            android:id="@+id/test_stream_button"
+            android:id="@+id/tvmaze_schedule_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginEnd="2dp"
-            android:text="Test Stream"
-            android:textColor="@color/white"
-            android:background="@drawable/button_primary_background" />
-
-        <Button
-            android:id="@+id/import_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="2dp"
-            android:text="Import Content"
+            android:layout_marginEnd="4dp"
+            android:text="Today's Schedule"
             android:textColor="@color/primary_blue"
             android:background="@drawable/button_secondary_background" />
 
         <Button
-            android:id="@+id/tvmaze_test_button"
+            android:id="@+id/tvmaze_people_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="2dp"
-            android:text="TVMaze Test"
-            android:textColor="@color/accent_orange"
+            android:layout_marginStart="4dp"
+            android:text="Search People"
+            android:textColor="@color/primary_blue"
             android:background="@drawable/button_secondary_background" />
 
     </LinearLayout>
+
+    <!-- Status Text -->
+    <TextView
+        android:id="@+id/tvmaze_status_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ready to search TVMaze (Free API!)"
+        android:textSize="14sp"
+        android:textColor="@color/text_secondary"
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="@color/surface_medium" />
 
     <!-- Content List -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Available Test Streams:"
+        android:text="TVMaze Results:"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
         android:padding="8dp" />
 
     <ListView
-        android:id="@+id/content_list"
+        android:id="@+id/tvmaze_content_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -98,7 +109,7 @@
         android:dividerHeight="1dp"
         android:padding="8dp" />
 
-    <!-- Streaming Info -->
+    <!-- TVMaze Info -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,7 +120,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Streaming Sources:"
+            android:text="TVMaze Free API Features:"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@color/text_primary" />
@@ -117,7 +128,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="• YouTube API\n• Internet Archive\n• Live TV Streams\n• Khan Academy\n• Open Movies"
+            android:text="• No API key required\n• Search TV shows and people\n• Get TV schedules\n• Cast and crew information\n• Episode details\n• Completely free!"
             android:textSize="12sp"
             android:textColor="@color/text_secondary"
             android:padding="4dp" />

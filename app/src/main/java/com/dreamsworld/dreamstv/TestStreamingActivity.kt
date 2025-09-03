@@ -10,6 +10,8 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import com.dreamsworld.dreamstv.data.StreamingConfig
 import com.dreamsworld.dreamstv.data.ContentImportService
+import com.dreamsworld.dreamstv.utils.ApiTestUtil
+import kotlinx.coroutines.runBlocking
 
 /**
  * Test Activity for DreamsTV Streaming
@@ -23,6 +25,7 @@ class TestStreamingActivity : AppCompatActivity() {
     private lateinit var statusText: TextView
     private lateinit var importButton: Button
     private lateinit var testStreamButton: Button
+    private lateinit var tvmazeTestButton: Button
     
     // Sample streaming URLs for testing
     private val testStreams = listOf(
@@ -50,6 +53,7 @@ class TestStreamingActivity : AppCompatActivity() {
         statusText = findViewById(R.id.status_text)
         importButton = findViewById(R.id.import_button)
         testStreamButton = findViewById(R.id.test_stream_button)
+        tvmazeTestButton = findViewById(R.id.tvmaze_test_button)
     }
     
     private fun setupPlayer() {
@@ -105,6 +109,12 @@ class TestStreamingActivity : AppCompatActivity() {
             val firstStream = testStreams.first()
             playStream(firstStream.second, firstStream.first)
         }
+        
+        tvmazeTestButton.setOnClickListener {
+            // Launch TVMaze test activity
+            val intent = android.content.Intent(this, TVMazeTestActivity::class.java)
+            startActivity(intent)
+        }
     }
     
     private fun playStream(url: String, title: String) {
@@ -122,38 +132,59 @@ class TestStreamingActivity : AppCompatActivity() {
     }
     
     private fun importContent() {
-        statusText.text = "Importing content..."
+        statusText.text = "Testing your API keys..."
         
-        // Simulate content import
+        // Test all APIs with your keys
         Thread {
             try {
-                // Simulate API calls
-                Thread.sleep(2000)
+                // Test API connectivity
+                val apiResults = runBlocking { ApiTestUtil.testAllApis() }
+                ApiTestUtil.logApiResults(apiResults)
+                
+                // Test content import
+                val contentManager = ContentImportService.ContentImportManager()
+                val movieGenres = runBlocking { contentManager.getMovieGenres() }
+                val popularMovies = runBlocking { contentManager.searchMovies("avengers") }
+                
+                // Test TVMaze (No API key required!)
+                val tvmazeShows = runBlocking { contentManager.searchTVMazeShows("breaking bad") }
+                val tvmazeSchedule = runBlocking { contentManager.getTVMazeSchedule("US") }
+                val tvmazePeople = runBlocking { contentManager.searchTVMazePeople("bryan cranston") }
                 
                 runOnUiThread {
-                    statusText.text = "Content imported successfully!"
+                    statusText.text = "API testing completed!"
                     
-                    // Show imported content info
+                    // Show API test results
+                    val apiStatus = ApiTestUtil.getApiStatusSummary(apiResults)
                     val importedContent = """
-                        Imported Content:
-                        - Movies: 50+ titles
-                        - TV Shows: 30+ series
-                        - Live TV: 20+ channels
-                        - Genres: ${StreamingConfig.CONTENT_CATEGORIES.size} categories
+                        🎬 DreamsTV API Test Results
                         
-                        Streaming Sources:
-                        - YouTube API
-                        - Internet Archive
-                        - Live TV Streams
-                        - Khan Academy
-                        - Open Movies
+                        $apiStatus
+                        
+                        Content Import Test:
+                        - Movie Genres: ${movieGenres.size} categories
+                        - Sample Movies: ${popularMovies.size} titles
+                        - Live TV Channels: ${StreamingConfig.LIVE_TV_CHANNELS.size} channels
+                        
+                        TVMaze Free API Test:
+                        - Breaking Bad Shows: ${tvmazeShows.size} results
+                        - Today's TV Schedule: ${tvmazeSchedule.size} shows
+                        - Bryan Cranston Search: ${tvmazePeople.size} people
+                        
+                        Your API Keys:
+                        - TMDB: ${StreamingConfig.TMDB_API_KEY.take(8)}...
+                        - YouTube: ${StreamingConfig.YOUTUBE_API_KEY.take(8)}...
+                        - OMDB: ${StreamingConfig.OMDB_API_KEY}
+                        
+                        Ready to stream! 🚀
                     """.trimIndent()
                     
                     Toast.makeText(this, importedContent, Toast.LENGTH_LONG).show()
                 }
             } catch (e: Exception) {
                 runOnUiThread {
-                    statusText.text = "Import failed: ${e.message}"
+                    statusText.text = "API test failed: ${e.message}"
+                    Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }.start()

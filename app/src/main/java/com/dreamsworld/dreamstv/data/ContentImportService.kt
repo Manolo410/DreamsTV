@@ -145,7 +145,7 @@ class ContentImportService(private val context: Context) {
         ): TVShowResponse
     }
     
-    // API Interface for TVMaze (Free TV Show API)
+    // API Interface for TVMaze (Free TV Show API - No Key Required!)
     interface TVMazeService {
         @GET("shows")
         suspend fun getAllShows(
@@ -163,6 +163,25 @@ class ContentImportService(private val context: Context) {
         
         @GET("shows/{id}/seasons")
         suspend fun getShowSeasons(@Path("id") id: Int): List<Season>
+        
+        // Additional TVMaze endpoints
+        @GET("shows/{id}/cast")
+        suspend fun getShowCast(@Path("id") id: Int): List<CastMember>
+        
+        @GET("shows/{id}/crew")
+        suspend fun getShowCrew(@Path("id") id: Int): List<CrewMember>
+        
+        @GET("schedule")
+        suspend fun getSchedule(@Query("country") country: String = "US"): List<ScheduleItem>
+        
+        @GET("schedule/web")
+        suspend fun getWebSchedule(@Query("date") date: String? = null): List<ScheduleItem>
+        
+        @GET("people/{id}")
+        suspend fun getPersonById(@Path("id") id: Int): Person
+        
+        @GET("search/people")
+        suspend fun searchPeople(@Query("q") query: String): List<PersonSearchResult>
     }
     
     data class SearchResult(
@@ -197,6 +216,83 @@ class ContentImportService(private val context: Context) {
         val endDate: String?,
         val summary: String?,
         val image: EpisodeImage?
+    )
+    
+    // TVMaze Cast and Crew
+    data class CastMember(
+        val person: Person,
+        val character: Character
+    )
+    
+    data class CrewMember(
+        val person: Person,
+        val type: String
+    )
+    
+    data class Person(
+        val id: Int,
+        val url: String,
+        val name: String,
+        val country: Country?,
+        val birthday: String?,
+        val deathday: String?,
+        val gender: String?,
+        val image: EpisodeImage?,
+        val updated: Long
+    )
+    
+    data class Character(
+        val id: Int,
+        val url: String,
+        val name: String,
+        val image: EpisodeImage?
+    )
+    
+    data class Country(
+        val name: String,
+        val code: String,
+        val timezone: String
+    )
+    
+    // TVMaze Schedule
+    data class ScheduleItem(
+        val id: Int,
+        val url: String,
+        val name: String,
+        val season: Int,
+        val number: Int,
+        val type: String,
+        val airdate: String,
+        val airtime: String,
+        val airstamp: String,
+        val runtime: Int?,
+        val rating: Rating?,
+        val image: EpisodeImage?,
+        val summary: String?,
+        val show: TVShow,
+        val network: Network?,
+        val webChannel: WebChannel?
+    )
+    
+    data class Rating(
+        val average: Double?
+    )
+    
+    data class Network(
+        val id: Int,
+        val name: String,
+        val country: Country?
+    )
+    
+    data class WebChannel(
+        val id: Int,
+        val name: String,
+        val country: Country?
+    )
+    
+    data class PersonSearchResult(
+        val score: Double,
+        val person: Person
     )
     
     // Live TV Channel Data
@@ -234,7 +330,7 @@ class ContentImportService(private val context: Context) {
         }
         
         // Import Movies from TMDB
-        suspend fun importMovies(apiKey: String, maxPages: Int = 5): Flow<List<Movie>> = flow {
+        suspend fun importMovies(apiKey: String = StreamingConfig.TMDB_API_KEY, maxPages: Int = 5): Flow<List<Movie>> = flow {
             for (page in 1..maxPages) {
                 try {
                     val popularMovies = tmdbService.getPopularMovies(apiKey, page)
@@ -254,7 +350,7 @@ class ContentImportService(private val context: Context) {
         }
         
         // Import TV Shows from TMDB and TVMaze
-        suspend fun importTVShows(tmdbApiKey: String, maxPages: Int = 5): Flow<List<TVShow>> = flow {
+        suspend fun importTVShows(tmdbApiKey: String = StreamingConfig.TMDB_API_KEY, maxPages: Int = 5): Flow<List<TVShow>> = flow {
             for (page in 1..maxPages) {
                 try {
                     val popularShows = tmdbService.getPopularTVShows(tmdbApiKey, page)
@@ -324,7 +420,7 @@ class ContentImportService(private val context: Context) {
         }
         
         // Search Content
-        suspend fun searchMovies(apiKey: String, query: String): List<Movie> {
+        suspend fun searchMovies(apiKey: String = StreamingConfig.TMDB_API_KEY, query: String): List<Movie> {
             return try {
                 tmdbService.searchMovies(apiKey, query).results
             } catch (e: Exception) {
@@ -332,7 +428,7 @@ class ContentImportService(private val context: Context) {
             }
         }
         
-        suspend fun searchTVShows(apiKey: String, query: String): List<TVShow> {
+        suspend fun searchTVShows(apiKey: String = StreamingConfig.TMDB_API_KEY, query: String): List<TVShow> {
             return try {
                 tmdbService.searchTVShows(apiKey, query).results
             } catch (e: Exception) {
@@ -341,7 +437,7 @@ class ContentImportService(private val context: Context) {
         }
         
         // Get Genres
-        suspend fun getMovieGenres(apiKey: String): List<Genre> {
+        suspend fun getMovieGenres(apiKey: String = StreamingConfig.TMDB_API_KEY): List<Genre> {
             return try {
                 tmdbService.getMovieGenres(apiKey).genres
             } catch (e: Exception) {
@@ -349,9 +445,80 @@ class ContentImportService(private val context: Context) {
             }
         }
         
-        suspend fun getTVGenres(apiKey: String): List<Genre> {
+        suspend fun getTVGenres(apiKey: String = StreamingConfig.TMDB_API_KEY): List<Genre> {
             return try {
                 tmdbService.getTVGenres(apiKey).genres
+            } catch (e: Exception) {
+                emptyList()
+            }
+        }
+        
+        // TVMaze Functions (No API Key Required!)
+        suspend fun importTVMazeShows(maxPages: Int = 3): Flow<List<TVShow>> = flow {
+            for (page in 0 until maxPages) {
+                try {
+                    val shows = tvmazeService.getAllShows(page)
+                    emit(shows)
+                    delay(1000) // Rate limiting (20 requests per 10 seconds)
+                } catch (e: Exception) {
+                    emit(emptyList())
+                }
+            }
+        }
+        
+        suspend fun searchTVMazeShows(query: String): List<TVShow> {
+            return try {
+                val searchResults = tvmazeService.searchShows(query)
+                searchResults.map { it.show }
+            } catch (e: Exception) {
+                emptyList()
+            }
+        }
+        
+        suspend fun getTVMazeShowDetails(showId: Int): TVShow? {
+            return try {
+                tvmazeService.getShowById(showId)
+            } catch (e: Exception) {
+                null
+            }
+        }
+        
+        suspend fun getTVMazeShowEpisodes(showId: Int): List<Episode> {
+            return try {
+                tvmazeService.getShowEpisodes(showId)
+            } catch (e: Exception) {
+                emptyList()
+            }
+        }
+        
+        suspend fun getTVMazeShowCast(showId: Int): List<CastMember> {
+            return try {
+                tvmazeService.getShowCast(showId)
+            } catch (e: Exception) {
+                emptyList()
+            }
+        }
+        
+        suspend fun getTVMazeSchedule(country: String = "US"): List<ScheduleItem> {
+            return try {
+                tvmazeService.getSchedule(country)
+            } catch (e: Exception) {
+                emptyList()
+            }
+        }
+        
+        suspend fun getTVMazeWebSchedule(date: String? = null): List<ScheduleItem> {
+            return try {
+                tvmazeService.getWebSchedule(date)
+            } catch (e: Exception) {
+                emptyList()
+            }
+        }
+        
+        suspend fun searchTVMazePeople(query: String): List<Person> {
+            return try {
+                val searchResults = tvmazeService.searchPeople(query)
+                searchResults.map { it.person }
             } catch (e: Exception) {
                 emptyList()
             }
