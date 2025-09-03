@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="@color/primary_blue"
+                android:endColor="@color/background_dark"
+                android:angle="135" />
+        </shape>
+    </item>
+    
+    <!-- Logo placeholder -->
+    <item
+        android:width="120dp"
+        android:height="120dp"
+        android:gravity="center">
+        <shape android:shape="oval">
+            <solid android:color="@color/overlay_light" />
+            <stroke android:width="2dp" android:color="@color/secondary_cyan" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    
+    <!-- DreamsTV Brand Colors - Modern Streaming Theme -->
+    <!-- Primary: Deep Ocean Blue -->
+    <color name="primary_blue">#FF1A237E</color>
+    <color name="primary_blue_light">#FF534BAE</color>
+    <color name="primary_blue_dark">#FF000051</color>
+    
+    <!-- Secondary: Electric Cyan -->
+    <color name="secondary_cyan">#FF00BCD4</color>
+    <color name="secondary_cyan_light">#FF62EFFF</color>
+    <color name="secondary_cyan_dark">#FF008BA3</color>
+    
+    <!-- Accent: Streaming Orange -->
+    <color name="accent_orange">#FFFF5722</color>
+    <color name="accent_orange_light">#FFFF8A65</color>
+    <color name="accent_orange_dark">#FFD84315</color>
+    
+    <!-- Background Colors -->
+    <color name="background_dark">#FF121212</color>
+    <color name="background_medium">#FF1E1E1E</color>
+    <color name="background_light">#FF2C2C2C</color>
+    <color name="surface_dark">#FF1C1C1C</color>
+    <color name="surface_medium">#FF2A2A2A</color>
+    <color name="surface_light">#FF3A3A3A</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#FFB3B3B3</color>
+    <color name="text_disabled">#FF666666</color>
+    <color name="text_hint">#FF999999</color>
+    
+    <!-- Overlay Colors -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_medium">#66000000</color>
+    <color name="overlay_light">#40000000</color>
+    <color name="overlay_blue">#801A237E</color>
+    
+    <!-- Status Colors -->
+    <color name="success_green">#FF4CAF50</color>
+    <color name="warning_yellow">#FFFFC107</color>
+    <color name="error_red">#FFF44336</color>
+    <color name="info_blue">#FF2196F3</color>
+    
+    <!-- Material3 Theme Colors -->
+    <color name="md_theme_primary">@color/primary_blue</color>
+    <color name="md_theme_onPrimary">@color/white</color>
+    <color name="md_theme_primaryContainer">@color/primary_blue_light</color>
+    <color name="md_theme_onPrimaryContainer">@color/white</color>
+    <color name="md_theme_secondary">@color/secondary_cyan</color>
+    <color name="md_theme_onSecondary">@color/black</color>
+    <color name="md_theme_secondaryContainer">@color/secondary_cyan_light</color>
+    <color name="md_theme_onSecondaryContainer">@color/black</color>
+    <color name="md_theme_tertiary">@color/accent_orange</color>
+    <color name="md_theme_onTertiary">@color/white</color>
+    <color name="md_theme_tertiaryContainer">@color/accent_orange_light</color>
+    <color name="md_theme_onTertiaryContainer">@color/white</color>
+    <color name="md_theme_error">@color/error_red</color>
+    <color name="md_theme_onError">@color/white</color>
+    <color name="md_theme_errorContainer">#FF93000A</color>
+    <color name="md_theme_onErrorContainer">#FFFFDAD6</color>
+    <color name="md_theme_background">@color/background_dark</color>
+    <color name="md_theme_onBackground">@color/text_primary</color>
+    <color name="md_theme_surface">@color/surface_dark</color>
+    <color name="md_theme_onSurface">@color/text_primary</color>
+    <color name="md_theme_surfaceVariant">@color/surface_medium</color>
+    <color name="md_theme_onSurfaceVariant">@color/text_secondary</color>
+    <color name="md_theme_outline">@color/text_disabled</color>
+    <color name="md_theme_outlineVariant">#FF444746</color>
+    <color name="md_theme_shadow">@color/black</color>
+    <color name="md_theme_scrim">@color/overlay_dark</color>
+    <color name="md_theme_inverseSurface">@color/text_primary</color>
+    <color name="md_theme_inverseOnSurface">@color/background_dark</color>
+    <color name="md_theme_inversePrimary">@color/primary_blue_light</color>
+    
+    <!-- Legacy compatibility -->
+    <color name="colorPrimary">@color/primary_blue</color>
+    <color name="colorPrimaryDark">@color/primary_blue_dark</color>
+    <color name="colorAccent">@color/secondary_cyan</color>
+    <color name="colorPrimaryVariant">@color/primary_blue_light</color>
+    <color name="colorOnSecondary">@color/black</color>
+    
+    <!-- Streaming specific colors -->
+    <color name="streaming_live_red">#FFFF1744</color>
+    <color name="streaming_premium_gold">#FFFFD700</color>
+    <color name="streaming_quality_4k">#FF9C27B0</color>
+    <color name="streaming_quality_hd">#FF4CAF50</color>
+    <color name="streaming_quality_sd">#FFFF9800</color>
+    
+    <!-- Gradient colors for modern UI -->
+    <color name="gradient_start">@color/primary_blue</color>
+    <color name="gradient_end">@color/secondary_cyan</color>
+    <color name="gradient_accent_start">@color/accent_orange</color>
+    <color name="gradient_accent_end">@color/primary_blue_light</color>
+</resources>
