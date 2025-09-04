@@ -1,4 +1,16 @@
 <resources>
+    <!-- AppCompat Text Appearance Styles -->
+    <style name="TextAppearance.AppCompat.Headline1" parent="android:TextAppearance">
+        <item name="android:textSize">96sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    
+    <style name="TextAppearance.AppCompat.Headline2" parent="android:TextAppearance">
+        <item name="android:textSize">60sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
 
     <style name="Widget.Theme.DreamsTV.ButtonBar.Fullscreen" parent="">
         <item name="android:background">@color/black_overlay</item>

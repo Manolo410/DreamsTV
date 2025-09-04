@@ -23,7 +23,7 @@
         
         <!-- Navigation bar - dark for night mode -->
         <item name="android:navigationBarColor">@color/black</item>
-        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
         
         <!-- Fullscreen support -->
         <item name="android:windowFullscreen">false</item>
@@ -33,7 +33,7 @@
         <item name="android:hardwareAccelerated">true</item>
         
         <!-- Keep screen on during video playback -->
-        <item name="android:windowKeepScreenOn">false</item>
+        <item name="android:keepScreenOn">false</item>
     </style>
     
     <!-- Night Theme Overlays -->

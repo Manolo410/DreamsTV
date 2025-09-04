@@ -23,7 +23,7 @@
         
         <!-- Navigation bar -->
         <item name="android:navigationBarColor">@color/background_dark</item>
-        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
         
         <!-- Fullscreen support -->
         <item name="android:windowFullscreen">false</item>
@@ -33,7 +33,7 @@
         <item name="android:hardwareAccelerated">true</item>
         
         <!-- Keep screen on during video playback -->
-        <item name="android:windowKeepScreenOn">false</item>
+        <item name="android:keepScreenOn">false</item>
     </style>
     
     <!-- Fullscreen Video Theme -->
@@ -44,8 +44,8 @@
         <item name="android:statusBarColor">@color/transparent</item>
         <item name="android:navigationBarColor">@color/transparent</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar">false</item>
-        <item name="android:windowKeepScreenOn">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
+        <item name="android:keepScreenOn">true</item>
     </style>
     
     <!-- Splash Screen Theme -->

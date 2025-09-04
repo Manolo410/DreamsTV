@@ -40,6 +40,7 @@
     <color name="overlay_medium">#66000000</color>
     <color name="overlay_light">#40000000</color>
     <color name="overlay_blue">#801A237E</color>
+    <color name="black_overlay">#80000000</color>
     
     <!-- Status Colors -->
     <color name="success_green">#FF4CAF50</color>
@@ -72,6 +73,7 @@
     <color name="md_theme_onSurfaceVariant">@color/text_secondary</color>
     <color name="md_theme_outline">@color/text_disabled</color>
     <color name="md_theme_outlineVariant">#FF444746</color>
+    <color name="outline">@color/text_disabled</color>
     <color name="md_theme_shadow">@color/black</color>
     <color name="md_theme_scrim">@color/overlay_dark</color>
     <color name="md_theme_inverseSurface">@color/text_primary</color>

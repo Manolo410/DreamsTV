@@ -144,7 +144,7 @@ class TestStreamingActivity : AppCompatActivity() {
                 // Test content import
                 val contentManager = ContentImportService.ContentImportManager()
                 val movieGenres = runBlocking { contentManager.getMovieGenres() }
-                val popularMovies = runBlocking { contentManager.searchMovies("avengers") }
+                val popularMovies = runBlocking { contentManager.searchMovies(query = "avengers") }
                 
                 // Test TVMaze (No API key required!)
                 val tvmazeShows = runBlocking { contentManager.searchTVMazeShows("breaking bad") }

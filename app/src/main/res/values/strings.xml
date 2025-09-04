@@ -118,4 +118,8 @@
     <string name="empty_continue_watching">Nothing to continue watching</string>
     <string name="empty_downloads">No downloads available</string>
     <string name="empty_search_results">No results found for your search</string>
+    
+    <!-- Dummy content for testing -->
+    <string name="dummy_content">This is dummy content for testing purposes.</string>
+    <string name="dummy_button">Dummy Button</string>
 </resources>

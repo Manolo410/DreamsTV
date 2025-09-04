@@ -17,12 +17,19 @@
         tools:ignore="ProtectedPermissions" />
     
     <!-- Optional: For analytics and crash reporting -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" 
+        android:required="false" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" 
         android:required="false" />
+    
+    <!-- Hardware features -->
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.software.leanback" android:required="true" />
 
     <application
         android:name=".DreamsTVApplication"
         android:allowBackup="true"
+        android:banner="@drawable/ic_launcher_foreground"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"

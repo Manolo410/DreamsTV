@@ -1,5 +1,7 @@
 package com.dreamsworld.dreamstv.data
 
+import com.dreamsworld.dreamstv.BuildConfig
+
 /**
  * Streaming Configuration for DreamsTV
  * This class manages all streaming sources, content providers, and API endpoints
@@ -9,6 +11,14 @@ object StreamingConfig {
     // Base URLs for different environments
     const val API_BASE_URL = BuildConfig.API_BASE_URL
     const val CDN_BASE_URL = BuildConfig.CDN_BASE_URL
+    
+    /**
+     * Initialize the streaming configuration
+     */
+    fun initialize() {
+        // Initialize any streaming-related configurations here
+        // This could include setting up default values, validating configurations, etc.
+    }
     
     // Streaming Quality Options
     enum class StreamQuality(val value: String, val bitrate: Int) {
@@ -229,7 +239,7 @@ object StreamingConfig {
     
     // Default Streaming Settings
     object DefaultSettings {
-        const val DEFAULT_QUALITY = StreamQuality.QUALITY_720P
+        const val DEFAULT_QUALITY = "720p"
         const val BUFFER_SIZE_MS = 5000L
         const val MAX_BUFFER_SIZE_MS = 30000L
         const val MIN_BUFFER_SIZE_MS = 2000L
