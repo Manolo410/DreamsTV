@@ -48,10 +48,12 @@ class FullscreenFragment : Fragment() {
      * system UI. This is to prevent the jarring behavior of controls going away
      * while interacting with activity UI.
      */
-    private val delayHideTouchListener = View.OnTouchListener { _, _ ->
+    private val delayHideTouchListener = View.OnTouchListener { view, _ ->
         if (AUTO_HIDE) {
             delayedHide(AUTO_HIDE_DELAY_MILLIS)
         }
+        // Call performClick() for accessibility support
+        view.performClick()
         false
     }
 

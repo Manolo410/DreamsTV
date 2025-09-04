@@ -65,7 +65,7 @@ class TestStreamingActivity : AppCompatActivity() {
             override fun onPlaybackStateChanged(playbackState: Int) {
                 when (playbackState) {
                     androidx.media3.common.Player.STATE_BUFFERING -> {
-                        statusText.text = "Buffering..."
+                        statusText.text = "Buffering…"
                     }
                     androidx.media3.common.Player.STATE_READY -> {
                         statusText.text = "Ready to play"
@@ -132,7 +132,7 @@ class TestStreamingActivity : AppCompatActivity() {
     }
     
     private fun importContent() {
-        statusText.text = "Testing your API keys..."
+        statusText.text = "Testing your API keys…"
         
         // Test all APIs with your keys
         Thread {

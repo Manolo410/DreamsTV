@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TVMaze Free API Test"
+        android:text="@string/tvmaze_test_title"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
@@ -30,18 +30,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Search shows or people..."
+            android:hint="@string/tvmaze_search_hint"
             android:textColor="@color/text_primary"
             android:textColorHint="@color/text_hint"
             android:background="@color/surface_medium"
             android:padding="12dp"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="8dp"
+            android:autofillHints="search"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/tvmaze_search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Search Shows"
+            android:text="@string/tvmaze_search_button"
             android:textColor="@color/white"
             android:background="@drawable/button_primary_background"
             android:layout_marginEnd="4dp" />
@@ -53,7 +55,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        style="?android:attr/buttonBarStyle">
 
         <Button
             android:id="@+id/tvmaze_schedule_button"
@@ -61,9 +64,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="4dp"
-            android:text="Today's Schedule"
+            android:text="@string/tvmaze_schedule_button"
             android:textColor="@color/primary_blue"
-            android:background="@drawable/button_secondary_background" />
+            android:background="@drawable/button_secondary_background"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/tvmaze_people_button"
@@ -71,9 +75,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="4dp"
-            android:text="Search People"
+            android:text="@string/tvmaze_people_button"
             android:textColor="@color/primary_blue"
-            android:background="@drawable/button_secondary_background" />
+            android:background="@drawable/button_secondary_background"
+            style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 
@@ -82,7 +87,7 @@
         android:id="@+id/tvmaze_status_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ready to search TVMaze (Free API!)"
+        android:text="@string/tvmaze_ready_message"
         android:textSize="14sp"
         android:textColor="@color/text_secondary"
         android:gravity="center"
@@ -93,7 +98,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TVMaze Results:"
+        android:text="@string/tvmaze_results_title"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"

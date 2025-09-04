@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DreamsTV Streaming Test"
+        android:text="@string/test_streaming_title"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
@@ -32,7 +32,7 @@
         android:id="@+id/status_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ready to stream"
+        android:text="@string/ready_to_stream"
         android:textSize="14sp"
         android:textColor="@color/text_secondary"
         android:gravity="center"
@@ -44,7 +44,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        style="?android:attr/buttonBarStyle">
 
         <Button
             android:id="@+id/test_stream_button"
@@ -52,9 +53,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="2dp"
-            android:text="Test Stream"
+            android:text="@string/test_stream_button"
             android:textColor="@color/white"
-            android:background="@drawable/button_primary_background" />
+            android:background="@drawable/button_primary_background"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/import_button"
@@ -62,9 +64,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginHorizontal="2dp"
-            android:text="Import Content"
+            android:text="@string/import_content_button"
             android:textColor="@color/primary_blue"
-            android:background="@drawable/button_secondary_background" />
+            android:background="@drawable/button_secondary_background"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/tvmaze_test_button"
@@ -72,9 +75,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="2dp"
-            android:text="TVMaze Test"
+            android:text="@string/tvmaze_test_button"
             android:textColor="@color/accent_orange"
-            android:background="@drawable/button_secondary_background" />
+            android:background="@drawable/button_secondary_background"
+            style="?android:attr/buttonBarButtonStyle" />
 
     </LinearLayout>
 
@@ -82,7 +86,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Available Test Streams:"
+        android:text="@string/available_test_streams"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
@@ -109,7 +113,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Streaming Sources:"
+            android:text="@string/streaming_sources_title"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@color/text_primary" />
@@ -117,7 +121,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="• YouTube API\n• Internet Archive\n• Live TV Streams\n• Khan Academy\n• Open Movies"
+            android:text="@string/streaming_sources_list"
             android:textSize="12sp"
             android:textColor="@color/text_secondary"
             android:padding="4dp" />

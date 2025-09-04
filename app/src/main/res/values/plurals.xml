@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Time format plurals -->
+    <plurals name="time_format_remaining">
+        <item quantity="one">%1$d:%2$02d minute remaining</item>
+        <item quantity="other">%1$d:%2$02d minutes remaining</item>
+    </plurals>
+    
+    <plurals name="time_format_elapsed">
+        <item quantity="one">%1$d:%2$02d minute elapsed</item>
+        <item quantity="other">%1$d:%2$02d minutes elapsed</item>
+    </plurals>
+    
+    <!-- Content duration plurals -->
+    <plurals name="content_duration_minutes">
+        <item quantity="one">%1$d minute</item>
+        <item quantity="other">%1$d minutes</item>
+    </plurals>
+    
+    <plurals name="content_duration_hours">
+        <item quantity="one">%1$d hour</item>
+        <item quantity="other">%1$d hours</item>
+    </plurals>
+    
+    <!-- Search results plurals -->
+    <plurals name="search_results_count">
+        <item quantity="one">%1$d result found</item>
+        <item quantity="other">%1$d results found</item>
+    </plurals>
+    
+    <!-- Episode count plurals -->
+    <plurals name="episode_count">
+        <item quantity="one">%1$d episode</item>
+        <item quantity="other">%1$d episodes</item>
+    </plurals>
+    
+    <!-- Season count plurals -->
+    <plurals name="season_count">
+        <item quantity="one">%1$d season</item>
+        <item quantity="other">%1$d seasons</item>
+    </plurals>
+    
+    <!-- Rating count plurals -->
+    <plurals name="rating_count">
+        <item quantity="one">%1$d rating</item>
+        <item quantity="other">%1$d ratings</item>
+    </plurals>
+</resources>

@@ -4,7 +4,8 @@
     <!-- Network permissions for streaming -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" 
+        android:required="false" />
     
     <!-- Wake lock for continuous playback -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -25,6 +26,11 @@
     <!-- Hardware features -->
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
     <uses-feature android:name="android.software.leanback" android:required="true" />
+    
+    <!-- Hardware features for permissions -->
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
 
     <application
         android:name=".DreamsTVApplication"
@@ -47,7 +53,6 @@
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.DreamsTV"
-            android:screenOrientation="landscape"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTop">
             <intent-filter>
@@ -62,7 +67,6 @@
             android:name=".TestStreamingActivity"
             android:exported="false"
             android:theme="@style/Theme.DreamsTV"
-            android:screenOrientation="landscape"
             android:configChanges="orientation|screenSize|keyboardHidden" />
         
         <!-- TVMaze Test Activity -->
@@ -70,7 +74,6 @@
             android:name=".TVMazeTestActivity"
             android:exported="false"
             android:theme="@style/Theme.DreamsTV"
-            android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|keyboardHidden" />
         
         <!-- Media Session Service for background playback -->

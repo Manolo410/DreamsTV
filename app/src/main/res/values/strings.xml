@@ -57,7 +57,7 @@
     <string name="success_removed_from_list">Removed from My List</string>
     
     <!-- Search -->
-    <string name="search_hint">Search movies, series, and more...</string>
+    <string name="search_hint">Search movies, series, and more…</string>
     <string name="search_no_results">No results found</string>
     <string name="search_recent">Recent Searches</string>
     <string name="search_trending">Trending Searches</string>
@@ -86,8 +86,6 @@
     
     <!-- Time Formats -->
     <string name="time_format_duration">%1$d:%2$02d</string>
-    <string name="time_format_remaining">%1$d:%2$02d remaining</string>
-    <string name="time_format_elapsed">%1$d:%2$02d elapsed</string>
     
     <!-- Content Information -->
     <string name="content_duration">Duration: %1$s</string>
@@ -109,9 +107,9 @@
     <string name="action_watch_later">Watch Later</string>
     
     <!-- Loading States -->
-    <string name="loading_content">Loading content...</string>
-    <string name="loading_stream">Preparing stream...</string>
-    <string name="loading_search">Searching...</string>
+    <string name="loading_content">Loading content…</string>
+    <string name="loading_stream">Preparing stream…</string>
+    <string name="loading_search">Searching…</string>
     
     <!-- Empty States -->
     <string name="empty_my_list">Your list is empty</string>
@@ -122,4 +120,25 @@
     <!-- Dummy content for testing -->
     <string name="dummy_content">This is dummy content for testing purposes.</string>
     <string name="dummy_button">Dummy Button</string>
+    
+    <!-- Test Streaming Activity -->
+    <string name="test_streaming_title">DreamsTV Streaming Test</string>
+    <string name="test_stream_button">Test Stream</string>
+    <string name="import_content_button">Import Content</string>
+    <string name="tvmaze_test_button">TVMaze Test</string>
+    <string name="ready_to_stream">Ready to stream</string>
+    <string name="available_test_streams">Available Test Streams:</string>
+    <string name="streaming_sources_title">Streaming Sources:</string>
+    <string name="streaming_sources_list">• YouTube API\n• Internet Archive\n• Live TV Streams\n• Khan Academy\n• Open Movies</string>
+    
+    <!-- TVMaze Test Activity -->
+    <string name="tvmaze_test_title">TVMaze Free API Test</string>
+    <string name="tvmaze_search_hint">Search shows or people…</string>
+    <string name="tvmaze_search_button">Search Shows</string>
+    <string name="tvmaze_schedule_button">Today\'s Schedule</string>
+    <string name="tvmaze_people_button">Search People</string>
+    <string name="tvmaze_ready_message">Ready to search TVMaze (Free API!)</string>
+    <string name="tvmaze_results_title">TVMaze Results:</string>
+    <string name="tvmaze_features_title">TVMaze Free API Features:</string>
+    <string name="tvmaze_features_list">• No API key required\n• Search TV shows and people\n• Get TV schedules\n• Cast and crew information\n• Episode details\n• Completely free!</string>
 </resources>

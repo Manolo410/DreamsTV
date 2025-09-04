@@ -64,7 +64,7 @@ class TVMazeTestActivity : AppCompatActivity() {
     }
     
     private fun loadInitialContent() {
-        statusText.text = "Loading popular TV shows from TVMaze..."
+        statusText.text = "Loading popular TV shows from TVMaze…"
         
         CoroutineScope(Dispatchers.Main).launch {
             try {
@@ -102,7 +102,7 @@ class TVMazeTestActivity : AppCompatActivity() {
     }
     
     private fun loadTVSchedule() {
-        statusText.text = "Loading today's TV schedule..."
+        statusText.text = "Loading today's TV schedule…"
         
         CoroutineScope(Dispatchers.Main).launch {
             try {

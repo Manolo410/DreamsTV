@@ -82,7 +82,7 @@ class MediaPlaybackService : MediaSessionService() {
                 setShowBadge(false)
             }
             
-            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val notificationManager = getSystemService(NotificationManager::class.java)
             notificationManager.createNotificationChannel(channel)
         }
     }
